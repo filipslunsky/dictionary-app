@@ -1,3 +1,12 @@
+body {
+    width: 100%;
+    margin: 0;
+}
+
+.main {
+    min-height: 800px;
+}
+
 .dayMode {
     background-color: white;
     color: black;
@@ -27,16 +36,17 @@
 }
 
 .logo, .moon {
-    margin: 10px 20px;
+    margin: 15px 20px;
     height: 40px;
 }
 
 .fontSelect {
     height: 30px;
-    width: 90px;
+    width: 100px;
     margin: 15px;
     border: none;
     border-radius: 10px;
+    padding-left: 10px;
 }
 
 .separator {
@@ -108,7 +118,7 @@ input:checked + .slider:before {
 }
 
 .searchField {
-    width: 89%;
+    width: 85%;
     height: 30px;
     padding: 7px 15px;
     font-size: 15px;
@@ -149,7 +159,7 @@ input:checked + .slider:before {
 
 .typeTitle {
     font-size: 25px;
-    margin: 25px;
+    margin: 30px;
     font-weight: bold;
 }
 
@@ -161,12 +171,17 @@ input:checked + .slider:before {
 
 .subtitle {
     font-size: 19px;
-    margin-left: 10px;
+    margin-left: 30px;
 }
 
 .synonymAntonym {
     color: #A445ED;
     font-weight: bold;
+}
+
+.meaningItem {
+    font-size: 17px;
+    margin-left: 30px;
 }
 
 .source, .sourceLink {

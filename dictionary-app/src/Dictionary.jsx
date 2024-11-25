@@ -32,7 +32,7 @@ const Dictionary = () => {
 
     return (
         <>
-            <div className={`${select} ${night ? 'nightMode' : 'dayMode'}`}>
+            <div className={`main ${select} ${night ? 'nightMode' : 'dayMode'}`}>
                 <div className='navbar'>
                     <img className='logo' src={logo} alt="logo" />
                     <div className='controls'>
