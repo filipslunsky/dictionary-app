@@ -33,26 +33,30 @@ const Dictionary = () => {
     return (
         <>
             <div className={`${select} ${night ? 'nightMode' : 'dayMode'}`}>
-                <div>
-                    <img src={logo} alt="logo" />
-                    <select onChange={(e) => setSelect(e.target.value)} name="font">
-                        <option value="serif">Serif</option>
-                        <option value="sansSerif">Sans Serif</option>
-                        <option value="mono">Mono</option>
-                    </select>
-                    <span>|</span>
-                    <label className="switch">
-                        <input
-                            type="checkbox"
-                            checked={night}
-                            onChange={handleNightMode}
-                        />
-                        <span className="slider"></span>
-                    </label>
-                    <img src={moonIcon} alt="moon" />
+                <div className='navbar'>
+                    <img className='logo' src={logo} alt="logo" />
+                    <div className='controls'>
+                        <select className='fontSelect' onChange={(e) => setSelect(e.target.value)} name="font">
+                            <option value="serif">Serif</option>
+                            <option value="sansSerif">Sans Serif</option>
+                            <option value="mono">Mono</option>
+                        </select>
+                        <span className='separator'>|</span>
+                        <label className="switch">
+                            <input
+                                type="checkbox"
+                                checked={night}
+                                onChange={handleNightMode}
+                            />
+                            <span className="slider"></span>
+                        </label>
+                        <img className='moon' src={moonIcon} alt="moon" />
+                    </div>
                 </div>
-                    <input type="text" placeholder='search' onChange={(e) => {setSearch(e.target.value)}} />
-                    <button onClick={getData}><img src={searchIcon} alt="search" /></button>
+                <div className='searchContainer'>
+                    <input className='searchField' type="text" placeholder='search' onChange={(e) => {setSearch(e.target.value)}} />
+                    <button className='searchButton' onClick={getData}><img src={searchIcon} alt="search" /></button>
+                </div>
                     {
                         data
                         ?
@@ -61,41 +65,43 @@ const Dictionary = () => {
                                 data.map((item, index) => {
                                     return (
                                     <div key={index}>
-                                        <h2>{item.word}</h2>
+                                        <h2 className='wordTitle'>{item.word}</h2>
                                         {item.phonetics
                                             .filter(phonetic => phonetic.audio)
                                             .map((phonetic, idx) => (
-                                                <div key={idx}>
-                                                    <p>{phonetic.text}</p>
-                                                    <img src={playIcon} alt='play audio' onClick={() => handlePlayAudio(phonetic.audio)} />
+                                                <div className='phonetics' key={idx}>
+                                                    <p className='phoneticText'>{phonetic.text}</p>
+                                                    <img className='phoneticIcon' src={playIcon} alt='play audio' onClick={() => handlePlayAudio(phonetic.audio)} />
                                                 </div>
                                             ))}
                                             {item.meanings.map((meaning, indx) => {
                                                 return (
                                                     <div key={indx}>
-                                                        <p>{meaning.partOfSpeech}</p>
-                                                        <hr />
-                                                        <h3>Meaning:</h3>
+                                                        <div className='typeTitleContainer'>
+                                                            <p className='typeTitle'>{meaning.partOfSpeech}</p>
+                                                            <hr className='horizontalSeparator' />
+                                                        </div>
+                                                        <p className='subtitle'>Meaning:</p>
                                                         <ul>
                                                             {meaning.definitions.map((definition, ind) => {
                                                                 return (
-                                                                    <li key={ind}>
+                                                                    <li className='meaningItem' key={ind}>
                                                                         <p>{definition.definition}</p>
                                                                         {definition.example ? <p>{definition.example}</p> : ''}
                                                                     </li>
                                                                 )
                                                             })}
                                                         </ul>
-                                                        {meaning.antonyms.length > 0 ? <p>Antonyms: {meaning.antonyms.join(', ')}</p> : ''}
-                                                        {meaning.synonyms.length > 0 ? <p>Synonyms: {meaning.synonyms.join(', ')}</p> : ''}
+                                                        {meaning.antonyms.length > 0 ? <p className='subtitle'>Antonyms: <span className='synonymAntonym'>{meaning.antonyms.join(', ')}</span></p> : ''}
+                                                        {meaning.synonyms.length > 0 ? <p className='subtitle'>Synonyms: <span className='synonymAntonym'>{meaning.synonyms.join(', ')}</span></p> : ''}
                                                     </div>
                                                 )
                                             })}
-                                        <p>
+                                        <p  className='source'>
                                             Source:{' '}  
                                             {item.sourceUrls.map((url, idx) => (
                                                 <span key={idx}>
-                                                    <a href={url} target="_blank">{url}</a>
+                                                    <a className='sourceLink' href={url} target="_blank">{url}</a>
                                                     {idx < item.sourceUrls.length - 1 && ', '}
                                                 </span>
                                             ))}

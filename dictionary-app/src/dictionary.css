@@ -1,9 +1,61 @@
+.dayMode {
+    background-color: white;
+    color: black;
+}
+
+.nightMode {
+    background-color: black;
+    color: white;
+}
+
+.serif {
+    font-family: serif;
+}
+
+.sansSerif {
+    font-family: sans-serif;
+}
+
+.mono {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo, .moon {
+    margin: 10px 20px;
+    height: 40px;
+}
+
+.fontSelect {
+    height: 30px;
+    width: 90px;
+    margin: 15px;
+    border: none;
+    border-radius: 10px;
+}
+
+.separator {
+    font-size: 25px;
+    margin-top: 17px;
+    color: #eeecec;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .switch {
     position: relative;
     display: inline-block;
     width: 50px;
     height: 24px;
-    margin-left: 10px;
+    margin: 20px 0 0 10px;
 }
 
 .switch input {
@@ -42,4 +94,86 @@ input:checked + .slider {
 
 input:checked + .slider:before {
     transform: translateX(26px);
+}
+
+.searchContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.searchField, .searchButton {
+    background-color: #eeecec;
+    border: none;
+    margin-top: 10px;
+}
+
+.searchField {
+    width: 89%;
+    height: 30px;
+    padding: 7px 15px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10px 0 0 10px;
+}
+
+.searchButton {
+    padding: 10px 15px;
+    border-radius: 0 10px 10px 0;
+}
+
+.wordTitle {
+    font-size: 35px;
+    margin-left: 17px;
+}
+
+.phonetics {
+    display: flex;
+    justify-content: space-between;
+    width: 98%;
+}
+
+.phoneticText {
+    margin-left: 20px;
+    font-size: 20px
+}
+
+.phoneticIcon {
+    height: 65px;
+    margin: 10px 0;
+}
+
+.typeTitleContainer {
+    display: flex;
+    align-items: center;
+}
+
+.typeTitle {
+    font-size: 25px;
+    margin: 25px;
+    font-weight: bold;
+}
+
+.horizontalSeparator {
+    width: 80%;
+    height: 1px;
+    color: #eeecec;
+}
+
+.subtitle {
+    font-size: 19px;
+    margin-left: 10px;
+}
+
+.synonymAntonym {
+    color: #A445ED;
+    font-weight: bold;
+}
+
+.source, .sourceLink {
+    font-size: 15px;
+}
+
+.sourceLink {
+    text-decoration: underline;
+    color: inherit;
 }
