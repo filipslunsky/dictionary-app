@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import searchIcon from './assets/images/icon-search.svg';
 import playIcon from './assets/images/icon-play.svg';
 
@@ -15,14 +15,13 @@ const Dictionary = () => {
         
         const res = await fetch(`${baseUrl}${search}`);
         const data = await res.json();
-        console.log(data);
         setData(data);
     };
 
-    // useEffect(() => {
-    //     console.log(search);
-    //     console.log(select);
-    // }, [search, select])
+    const handlePlayAudio = (audioUrl) => {
+        const audio = new Audio(audioUrl);
+        audio.play();
+    };
 
     return (
         <>
@@ -47,10 +46,7 @@ const Dictionary = () => {
                                     .map((phonetic, idx) => (
                                         <div key={idx}>
                                             <p>{phonetic.text}</p>
-                                            <audio controls>
-                                                <source src={phonetic.audio} type="audio/mpeg" />
-                                                Your browser does not support the audio element.
-                                            </audio>
+                                            <img src={playIcon} alt='play audio' onClick={() => handlePlayAudio(phonetic.audio)} />
                                         </div>
                                     ))}
                                     {item.meanings.map((meaning, indx) => {
