@@ -5,6 +5,7 @@ body {
 
 .main {
     min-height: 800px;
+    padding-bottom: 25px;
 }
 
 .dayMode {
@@ -47,6 +48,10 @@ body {
     border: none;
     border-radius: 10px;
     padding-left: 10px;
+}
+
+.nightMode .fontSelect {
+    background-color: gray;
 }
 
 .separator {
@@ -126,6 +131,14 @@ input:checked + .slider:before {
     border-radius: 10px 0 0 10px;
 }
 
+.nightMode .searchField {
+    background-color: gray;
+}
+
+.nightMode .searchButton {
+    background-color: gray;
+}
+
 .searchButton {
     padding: 10px 15px;
     border-radius: 0 10px 10px 0;
@@ -186,9 +199,15 @@ input:checked + .slider:before {
 
 .source, .sourceLink {
     font-size: 15px;
+    padding: 15px;
 }
 
 .sourceLink {
     text-decoration: underline;
     color: inherit;
+}
+
+.errorContainer {
+    text-align: center;
+    margin-top: 130px;
 }

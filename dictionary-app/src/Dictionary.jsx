@@ -101,7 +101,7 @@ const Dictionary = () => {
                                             Source:{' '}  
                                             {item.sourceUrls.map((url, idx) => (
                                                 <span key={idx}>
-                                                    <a className='sourceLink' href={url} target="_blank">{url}</a>
+                                                    <a className='sourceLink' href={url} target="_blank">{url}&#x2197;</a>
                                                     {idx < item.sourceUrls.length - 1 && ', '}
                                                 </span>
                                             ))}
@@ -110,7 +110,7 @@ const Dictionary = () => {
                                     )
                                 })
                                 :
-                                <div>
+                                <div className='errorContainer'>
                                     <h2>{data.title}</h2>
                                     <p>{data.message}</p>
                                     <p>{data.resolution}</p>
